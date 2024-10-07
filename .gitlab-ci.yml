@@ -1,0 +1,13 @@
+stages:
+    - release
+
+release:
+  image: node:20
+  stage: release
+  only:
+    refs:
+    - main
+  script:
+    - npm install -g semantic-release@24.0.0
+    - npm install -g @semantic-release/gitlab@10.1.1
+    - npx semantic-release
